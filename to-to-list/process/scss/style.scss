@@ -1,0 +1,171 @@
+/*----------------------
+  TABLE OF CSS CONTENT
+------------------------
+	[*] Reset
+  [1] Variables
+  [2] Mixin
+  [3] Global style
+  [*] Media query
+*/
+
+/* ------------------
+[*] Reset
+-------------------*/
+@import url('reset.css');
+
+/* ------------------
+[1] Variables
+-------------------*/
+$light-grey: #fbfbfb;
+$grey: #e8e8e8;
+$border: solidx 1px #333;
+$marginAuto: 0 auto;
+$padding10: 10px;
+$green: #38bb38;
+
+/* ------------------
+[2] Mixin
+-------------------*/
+@mixin transition($transition...) {
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  -webkit-transition: $transition;
+  transition: $transition;
+}
+
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+/* ------------------
+[3] Global style
+-------------------*/
+/*html { direction: rtl; }*/
+body{ background-color: $light-grey;  }
+
+.toDoContainer {
+    width: 100%;
+    max-width: 595px;
+    margin: 0 auto;
+
+    h2 {
+        margin: 20px 0;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    & > ul { border-top: solid 1px $grey; }
+
+    li {
+      border: solid 1px $grey;
+      border-top: none;
+      height: 50px;
+      line-height: 50px;
+      position: relative;
+
+      input[type="checkbox"] { margin: 0 17px 0 13px; }
+      input[type="text"] {
+        width: calc( 74% - 50px);
+        height: 27px;
+        border: solid 1px #dadada;
+      }
+      input[type="button"] {
+        width: calc( 33% - 50px);
+        max-width: 135px;
+        height: 30px;
+        border: none;
+        background-color: $green;
+        color: #fff;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: bold;
+        position: absolute;
+        right: 9px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        outline: none;
+        @include transition( all 0.3s ease);
+
+        &:hover {
+          background-color: #5ee45e;
+          @include transform( scale(0.95));
+        }
+      }
+
+    }
+
+    & > ul:first-of-type li { background-color: $grey; }
+
+    .newListsContainer {
+      ul li{
+        *{ display: inline-block; }
+        &:nth-child(even) { background-color: $grey; }
+        @include transition( all 0.4s cubic-bezier(0.88, -0.58, 0.14, 1.46) );
+
+        input.checkBox { height: 50px; }
+        p{
+          max-width: 500px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        &.done p{ text-decoration: line-through; }
+        &.remove {
+            opacity: 0;
+            transform: scale(0.5);
+        }
+
+        .removeBtn {
+          position: absolute;
+          right: 9px;
+          top: 0;
+          bottom: 0;
+          width: 23px;
+          height: 23px;
+          margin: auto;
+          line-height: 23px;
+          text-align: center;
+          border-radius: 30px;
+          border: solid 1px #949393;
+          cursor: pointer;
+          color: #949393;
+          font-size: 13px;
+          outline: none;
+          @include transition( all 0.3s ease);
+
+            &:hover{
+              background-color: #ea5454;
+              color: #fff;
+              @include rotate( 180);
+            }
+            &:active{ @include transform( scale(0.7)); }
+          }
+
+      }
+    }
+
+}
+
+.green-text { color: $green; }
+
+
+/* ------------------
+[3] Container
+-------------------*/
+
+/* ------------------
+[*] Media query
+-------------------*/
+@media screen and (max-width: 460px) {
+  .toDoContainer li input[type="text"]{ width: calc( 67% - 50px); }
+  .toDoContainer li input[type="button"] { width: calc( 42% - 50px); font-size: 10px; }
+}

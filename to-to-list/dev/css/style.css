@@ -1,0 +1,75 @@
+/*----------------------
+  TABLE OF CSS CONTENT
+------------------------
+	[*] Reset
+  [1] Variables
+  [2] Mixin
+  [3] Global style
+  [*] Media query
+*/
+/* ------------------
+[*] Reset
+-------------------*/
+@import url("reset.css");
+/* ------------------
+[1] Variables
+-------------------*/
+/* ------------------
+[2] Mixin
+-------------------*/
+/* ------------------
+[3] Global style
+-------------------*/
+/*html { direction: rtl; }*/
+body { background-color: #fbfbfb; }
+
+.toDoContainer { width: 100%; max-width: 595px; margin: 0 auto; }
+
+.toDoContainer h2 { margin: 20px 0; text-transform: uppercase; font-size: 14px; font-weight: bold; }
+
+.toDoContainer > ul { border-top: solid 1px #e8e8e8; }
+
+.toDoContainer li { border: solid 1px #e8e8e8; border-top: none; height: 50px; line-height: 50px; position: relative; }
+
+.toDoContainer li input[type="checkbox"] { margin: 0 17px 0 13px; }
+
+.toDoContainer li input[type="text"] { width: calc( 74% - 50px); height: 27px; border: solid 1px #dadada; }
+
+.toDoContainer li input[type="button"] { width: calc( 33% - 50px); max-width: 135px; height: 30px; border: none; background-color: #38bb38; color: #fff; cursor: pointer; font-size: 12px; font-weight: bold; position: absolute; right: 9px; top: 0; bottom: 0; margin: auto; outline: none; -moz-transition: all 0.3s ease; -o-transition: all 0.3s ease; -webkit-transition: all 0.3s ease; transition: all 0.3s ease; }
+
+.toDoContainer li input[type="button"]:hover { background-color: #5ee45e; -moz-transform: scale(0.95); -o-transform: scale(0.95); -ms-transform: scale(0.95); -webkit-transform: scale(0.95); transform: scale(0.95); }
+
+.toDoContainer > ul:first-of-type li { background-color: #e8e8e8; }
+
+.toDoContainer .newListsContainer ul li { -moz-transition: all 0.4s cubic-bezier(0.88, -0.58, 0.14, 1.46); -o-transition: all 0.4s cubic-bezier(0.88, -0.58, 0.14, 1.46); -webkit-transition: all 0.4s cubic-bezier(0.88, -0.58, 0.14, 1.46); transition: all 0.4s cubic-bezier(0.88, -0.58, 0.14, 1.46); }
+
+.toDoContainer .newListsContainer ul li * { display: inline-block; }
+
+.toDoContainer .newListsContainer ul li:nth-child(even) { background-color: #e8e8e8; }
+
+.toDoContainer .newListsContainer ul li input.checkBox { height: 50px; }
+
+.toDoContainer .newListsContainer ul li p { max-width: 500px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.toDoContainer .newListsContainer ul li.done p { text-decoration: line-through; }
+
+.toDoContainer .newListsContainer ul li.remove { opacity: 0; transform: scale(0.5); }
+
+.toDoContainer .newListsContainer ul li .removeBtn { position: absolute; right: 9px; top: 0; bottom: 0; width: 23px; height: 23px; margin: auto; line-height: 23px; text-align: center; border-radius: 30px; border: solid 1px #949393; cursor: pointer; color: #949393; font-size: 13px; outline: none; -moz-transition: all 0.3s ease; -o-transition: all 0.3s ease; -webkit-transition: all 0.3s ease; transition: all 0.3s ease; }
+
+.toDoContainer .newListsContainer ul li .removeBtn:hover { background-color: #ea5454; color: #fff; -moz-transform: rotate(180deg); -o-transform: rotate(180deg); -ms-transform: rotate(180deg); -webkit-transform: rotate(180deg); transform: rotate(180deg); }
+
+.toDoContainer .newListsContainer ul li .removeBtn:active { -moz-transform: scale(0.7); -o-transform: scale(0.7); -ms-transform: scale(0.7); -webkit-transform: scale(0.7); transform: scale(0.7); }
+
+.green-text { color: #38bb38; }
+
+/* ------------------
+[3] Container
+-------------------*/
+/* ------------------
+[*] Media query
+-------------------*/
+@media screen and (max-width: 460px) { .toDoContainer li input[type="text"] { width: calc( 67% - 50px); }
+  .toDoContainer li input[type="button"] { width: calc( 42% - 50px); font-size: 10px; } }
+
+/*# sourceMappingURL=style.css.map */
